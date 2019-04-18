@@ -1,0 +1,455 @@
+Version 1.7.23
+--------------
+
+-
+
+Version 1.7.22
+--------------
+ 
+- Don't put body in nested object if parameterMap is empty. (thanks erhangullu)
+- Allow creating and setting an `HttpInterface` in the Context. (thanks chris-smith-zocdoc)
+
+Version 1.7.21
+--------------
+
+- Updating sentry-cli version in the Android gradle plugin.
+
+Version 1.7.20
+--------------
+
+- Fixes for Android R8 support.
+
+Version 1.7.19
+--------------
+
+- Add support for Android R8 minification.
+
+Version 1.7.18
+--------------
+
+- Fix `--no-upload` option in Sentry Gradle Plugin under newer Groovy.
+- Allow overriding Sentry Organization and Project per buildType. (thanks nesterov-n)
+
+Version 1.7.17
+--------------
+
+- Fix for Sentry Gradle Plugin when using Android Studio 3.3 and Gradle 5.1.
+
+Version 1.7.16
+--------------
+
+- Fix timestamp format locale to be what Sentry expects.
+- Add `sentry-spring-boot-starter` module that autoconfigures Sentry for Spring-Boot. (thanks eddumelendez)
+- Fix Sentry Gradle Plugin for AGP 3.3 and Gradle 4.10 (thanks realdadfish)
+
+Version 1.7.15
+--------------
+
+- Allow users to provide a custom `manifestPath` in the Sentry Gradle Plugin.
+
+Version 1.7.14
+--------------
+
+- Fix Sentry Gradle Plugin asset directory so Proguard debug information
+  is written to the correct location when using newer versions of the
+  Android Gradle Plugin.
+
+Version 1.7.13
+--------------
+
+- Fix compatibility with Gradle 4.4+ (#621) (thanks cezary-butler)
+- Bump Sentry Gradle Plugin embedded sentry-cli to 1.36.3
+
+Version 1.7.12
+--------------
+
+- Only set `release` and `dist` on Android events if the user didn't provide their own.
+- Allow Gradle plugin to be included in library projects. (thanks linakis)
+
+Version 1.7.11
+--------------
+
+*Accidentally republished 1.7.10, please skip this release*
+
+Version 1.7.10
+--------------
+
+- Android Plugin: Look for properties file directly under flavor directory. (thanks biggestT)
+- Drop events when the server returns an HTTP 429.
+
+Version 1.7.9
+-------------
+
+- Encode SDK_VERSION in a Java class instead of looking up a ResouceBundle.
+
+Version 1.7.8
+-------------
+
+- Fix Android Gradle Plugin for >=3.3.0.
+
+Version 1.7.7
+-------------
+
+- Handle exceptions in `toString` calls when marshalling arbitrary objects to JSON.
+
+Version 1.7.6
+-------------
+
+*Built with the incorrect version of Java, please skip this release*
+
+Version 1.7.5
+-------------
+
+- Add `BreadcrumbBuilder.withData` (thanks kohenkatz)
+
+Version 1.7.4
+-------------
+
+- Allow new-style DSNs without the secret key.
+
+Version 1.7.3
+-------------
+
+- Handle Event `extra` deserialization failures when using Proguard. (thanks mcomella)
+- Fix support for JUL handler level. (thanks nsitbon)
+
+Version 1.7.2
+-------------
+
+- Set HTTPConnection read timeout to 5 seconds. (thanks kalaspuffar)
+
+Version 1.7.1
+-------------
+
+- Android Gradle Plugin: Improve various directory structure support. (thanks ruZZil)
+
+Version 1.7.0
+-------------
+
+- Warn (once) when a client lockdown is first initiated and why.
+- Log events skipped by a lockdown at the DEBUG level.
+- Don't log a full stacktrace when an HTTP 429 (Too Many Requests) is returned.
+- Fix parsing of Retry-After header which apparently changed to a floating point number.
+- Pass MDC context down to AsyncConnection worker threads.
+- Changed `buffer.size` default from 50 to 10.
+- When buffering is enabled, only retry sending events when the network is down or the project
+  is being throttled (HTTP 429).
+
+Version 1.6.8
+-------------
+
+- Create a noop sentry client when the user provides bad configuration. (thanks dmclain)
+- Use project.name instead of hardcoding 'app' in Android Gradle Plugin.
+
+Version 1.6.7
+-------------
+
+- Add Automatic-Module-Name to manifest so we have basic Java 9 support.
+- Print unhandled exceptions to stderr by default (like ThreadGroup does).
+
+Version 1.6.6
+-------------
+
+- Attempt to unregister async/buffer shutdown hooks when connection is closed. (thanks obourgain)
+
+Version 1.6.5
+-------------
+
+- Implemented Serializable for DebugImage, fixes buffering with Proguard symbols.
+- Use default DSN when empty string is provided. (thanks afking)
+
+Version 1.6.4
+-------------
+
+- Add web-fragment.xml to prevent classpath scanning.
+- Update Android Gradle plugin to use new NPM package if available.
+
+Version 1.6.3
+-------------
+
+- Fix issue where Gradle tasks were not created. (thanks szymanskip)
+
+Version 1.6.2
+-------------
+
+- Handle multi-APK projects with different version codes.
+
+Version 1.6.1
+-------------
+
+- Don't throw a ConnectionException if an event is filtered by the Sentry server (HTTP 403).
+
+Version 1.6.0
+-------------
+
+- Add transaction field to Event and EventBuilder.
+- Deprecate culprits in favor of transactions.
+- Culprit is no longer set automatically in logging integrations.
+
+Version 1.5.6
+-------------
+
+- Add ``in_app`` frame blacklist regex list to skip CGLIB generated classes in Spring.
+
+Version 1.5.5
+-------------
+
+- Fix crash on Android API < 16. (thanks Syhids)
+
+Version 1.5.4
+-------------
+
+- Change ``EventBuilder$HostnameCache`` timeout to only log at debug level.
+
+Version 1.5.3
+-------------
+
+- Cleanup SentryEnvironment state to avoid memory leak warnings on Tomcat.
+- Fix for buffering Events to disk that have null values in their extras map.
+
+Version 1.5.2
+-------------
+
+- Add ability to remove individual tags or extra data from the context, or clear them entirely.
+
+Version 1.5.1
+-------------
+
+- Don't attempt to serialize Iterables and don't special case serialization for Path objects, fixes broken Android release.
+
+Version 1.5.0
+-------------
+
+- Reduce logging noise if JNDI is missing.
+- Add OSGi support. (thanks markwoon)
+- Local variable agent beta.
+
+Version 1.4.0
+-------------
+
+- Automatically set ``stacktrace.app.packages`` on Android if it is not provided by the user.
+- Enable UncaughtExceptionHandler by default, add ``uncaught.handler.enabled`` option.
+- Add Spring exception reporter and Spring Boot servlet initializer.
+
+Version 1.3.1
+-------------
+
+- Reduce startup and shutdown logging noise by moving a lot of INFO level logs to DEBUG.
+- Android: fallback to `os.version` property for kernel version is `/proc/version` is unreadable.
+
+Version 1.3.0
+-------------
+
+- Deprecate ``extratags`` in favor of the more clear ``mdctags``.
+- Add ability to set ``extra`` data via options and on ``SentryClient`` instances.
+- Add ability to set ``extra`` data and ``tags`` in the current context.
+
+Version 1.2.2
+-------------
+
+- Make operations on Context threadsafe.
+
+Version 1.2.1
+-------------
+
+- Fix ``SentryStackTraceElement`` to implement ``Serializable``.
+
+Version 1.2.0
+-------------
+
+- Allow overriding the location of the properties file.
+- Add support for handling and uploading Proguard files to Sentry (for Android applications).
+- Cleanup thread local context in ``ThreadLocalContextManager`` after each servlet request finishes.
+- Change the ``EventBuilder`` hostname lookup code to only run one thread at a time.
+- Add ``ShouldSendEventCallback``, which can be added to each ``SentryClient`` instance.
+- Add ability to set extra data on the ``UserInterface``.
+
+Version 1.1.0
+-------------
+
+- Add ability to set the culprit from a SentryStackTraceElement.
+- (alpha) Add agent to collect local variable informatino when an exception occurs.
+
+Version 1.0.0
+-------------
+
+1.0.0 is a major refactor, please see the official documentation to see how configuration and usage
+has changed: https://docs.sentry.io/clients/java/
+
+- Move from ``com.getsentry.raven`` package to ``io.sentry``.
+- Rename from ``raven-java`` to ``sentry-java``.
+- Rename the ``Sentry`` class to ``SentryClient``.
+- Rename the ``SentryFactory`` class to ``SentryClientFactory``, and renamed all subclasses
+  to now end in ``ClientFactory``.
+- Remove ``Breadcrumbs`` class.
+- Add new ``Sentry`` class for static client initialization, access and usage.
+- Remove ``android.Sentry`` in favor of using the single static ``Sentry`` class everywhere.
+- Rename ``sentryFactory`` option to ``factory`` so that the environment variable configuration is
+  now ``SENTRY_FACTORY`` and the Java System Property is ``sentry.factory``.
+- Add ``dist`` field to Event.
+- Compressed JSON payloads are no longer base64 encoded.
+- Rename ``EventSendFailureCallback`` to ``EventSendCallback``, add ``onSuccess`` callback.
+- Add way to set release, dist, environment, serverName, tags, and extraTags on a ``SentryClient``.
+- Add way to set release, dist, environment, serverName, tags, and extraTags via the DSN.
+- Logging integrations now use the new ``Sentry`` static API.
+- Configuration can now be provided by a ``sentry.properties`` file provided in resources.
+
+raven-java changelog (before rename to sentry-java)
+===================================================
+
+Version 8.0.2
+-------------
+
+- Add user breadcrumb type. (thanks NLthijs48)
+- Add getter for underlying ``Event`` in ``EventBuilder`` so that helpers can read fields. (thanks anjo-swe)
+
+Version 8.0.1
+-------------
+
+- Fix setting the ``RavenFactory`` via Java System Properties or environment variables.
+- Fix message interface errors in log4j2 integration.
+
+Version 8.0.0
+-------------
+
+- Remove ``DefaultRavenFactory.getNotInAppFrames()`` blacklist in favor of a new whitelist method,
+  ``DefaultRavenFactory.getInAppFrames(Dsn dsn)``.
+- Add ``raven.stacktrace.app.packages`` DSN option for configuring your application's package prefixes.
+- Fix so that system properties and environment variables always override hardcoded logger configuration for settings
+  such as release, environment, etc.
+- Fix Raven initialization so that slf4j doesn't emit log replay warning on startup.
+- Changed ``Breadcrumb`` and `BreadcrumbBuilder`` to use enums for some fields.
+
+Version 7.8.6
+-------------
+
+- Automatically collect device information in ``contexts`` field on Android.
+- Updated Jackson, slf4j, log4j2 and logback dependencies.
+
+Version 7.8.5
+-------------
+
+- Add optional ``body`` field to HttpInterface.
+- Fix name of the lockdown logger.
+
+Version 7.8.4
+-------------
+
+- Add ``contexts`` field support to Events.
+- Add ``com.getsentry.raven.Raven.lockdown`` logger that can be disabled to ignore warning messages
+  on each attempted Event send when Raven is in lockdown mode.
+
+Version 7.8.3
+-------------
+
+- Add User to RavenContext and ContextBuilderHelper. (thanks mpecan)
+- Drop Events when the connection is locked down, users must enable buffering to attempt to resend later.
+- Respect the Sentry server's ``Retry-After`` header.
+
+Version 7.8.2
+-------------
+
+- Fix race condition, ensuring Raven initialization is synchronized in appenders. (thanks OutOfBrain)
+- Allow use of custom AndroidRavenFactory. (thanks kassim)
+- Add ``sdk`` field to payload, identify subprojects in SDK name.
+- Add ``raven.sample.rate`` DSN option to optionally reduce the number of events sent to the server.
+
+Version 7.8.1
+-------------
+
+- Make Breadcrumbs serializable.
+- Don't log errors in RavenServletRequestListener if Raven hasn't been initialized.
+
+Version 7.8.0
+-------------
+
+- Add Android support under the ``raven-android`` subproject.
+- Add Filters to drop all Raven logs before they go to the Sentry server.
+- Loosen permission on some Appender/Handler methods to allow for easier overriding. (thanks briprowe)
+
+Version 7.7.1
+-------------
+
+- Add ``raven.maxmessagelength`` DSN option. (thanks vektory79)
+- Add ``Buffer`` interface, used to store events that fail to be sent to the Sentry server.
+  Includes a DiskBuffer implementation and related ``raven.buffer.*`` options.
+- Broke out many helper methods inside of ``DefaultRavenFactory`` to allow for easier
+  overrides.
+- Add a way to retrieve the thread's last sent Event ID, if any. Useful for integrating
+  with the user feedback feature.
+- Add ``raven.async.queue.overflow`` option for controlling what to do when the async
+  executor queue is full. (thanks barogi)
+
+Version 7.7.0
+-------------
+
+- Add static ``Raven.capture`` methods that send to the most recently constructed Raven instance.
+- Add support for setting ``ravenFactory``, ``release``, ``environment`` and ``serverName``
+  via JNDI, System Environment or Java System Properties (like the DSN).
+- Send headers as an array of arrays, no longer wrapped in added apostrophes.
+
+Version 7.6.0
+-------------
+
+- Add ``environment`` property to events and appenders.
+
+Version 7.5.0
+-------------
+
+- Add support for configuring an HTTP proxy in the DSN.
+- Add more debugging information to ``RavenFactory.ravenInstance``.
+- Add ``formatted`` field to JSON payload if possible.
+
+Version 7.4.0
+-------------
+
+- Changed default ``raven.async.queuesize`` from unlimited to 50.
+- Add callback system for exceptions raised while attempting to send events.
+
+Version 7.3.0
+-------------
+
+- Add (manual) support for breadcrumbs to event objects.
+- Add ``sendEvent(EventBuilder)`` method which calls builder helpers before building and sending the ``Event``.
+- Add ``RavenContext`` which tracks thread-local state.
+- Add ``Breadcrumbs`` helper to log breadcrumbs from anywhere without manually passing context around.
+
+Version 7.2.3
+-------------
+
+- Accept ``Throwable`` instances as parameter to ``Raven.sendException``.
+- Add ``raven.async.shutdowntimeout`` option.
+- Remove default ``WARNING`` filter level for the Logback appender.
+
+Version 7.2.2
+-------------
+
+- Fix ServerName configuration in ``raven-log4j``.
+
+Version 7.2.1
+-------------
+
+- Drop dependency on Guava.
+
+Version 7.2.0
+-------------
+
+- Add printfStyle option to JUL integration. (thanks giilby)
+- Updated Log4j2 documentation to refer to the Thread Context rather than the MDC. (thanks grobmeier)
+- Fix duplicate ShutdownHook warnings in ``raven-log4j2``.
+- Add way to override how remote addresses are resolved (RemoteAddressResolver interface). (thanks j-fernandes)
+- Add way to set ``serverName`` statically in configuration. (thanks mattbillenstein)
+
+Version 7.1.0
+-------------
+
+- Use RavenFactory's class loader when creating the service loader, fixing some issues in containers. (thanks exell-christopher)
+- Add ``release`` property to ``raven-log4j``. (thanks molaschi)
+- Add ``release`` property to JUL integration and ``raven-log4j2``.
+- Add setters for ``dsn`` and ``tags`` in JUL integration, fixes integration with WildFly. (thanks giilby)
+
+
+Version 7.0.0
+-------------
+
+- Changed Maven groupId to ``com.getsentry``

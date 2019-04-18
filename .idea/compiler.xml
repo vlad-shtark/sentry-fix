@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sentry-log4j2" />
+        <module name="sentry-spring-boot-starter" />
+        <module name="sentry-logback" />
+        <module name="sentry-spring" />
+        <module name="sentry-log4j" />
+        <module name="sentry-appengine" />
+        <module name="sentry-android" />
+        <module name="sentry" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sentry" target="1.8" />
+      <module name="sentry-all" target="1.8" />
+      <module name="sentry-android" target="1.8" />
+      <module name="sentry-appengine" target="1.8" />
+      <module name="sentry-log4j" target="1.8" />
+      <module name="sentry-log4j2" target="1.8" />
+      <module name="sentry-logback" target="1.8" />
+      <module name="sentry-spring" target="1.8" />
+      <module name="sentry-spring-boot-starter" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

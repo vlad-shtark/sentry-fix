@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/sentry/sentry.iml" filepath="$PROJECT_DIR$/sentry/sentry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sentry-all.iml" filepath="$PROJECT_DIR$/sentry-all.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sentry-android/sentry-android.iml" filepath="$PROJECT_DIR$/sentry-android/sentry-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sentry-appengine/sentry-appengine.iml" filepath="$PROJECT_DIR$/sentry-appengine/sentry-appengine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sentry-log4j/sentry-log4j.iml" filepath="$PROJECT_DIR$/sentry-log4j/sentry-log4j.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sentry-log4j2/sentry-log4j2.iml" filepath="$PROJECT_DIR$/sentry-log4j2/sentry-log4j2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sentry-logback/sentry-logback.iml" filepath="$PROJECT_DIR$/sentry-logback/sentry-logback.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sentry-spring/sentry-spring.iml" filepath="$PROJECT_DIR$/sentry-spring/sentry-spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sentry-spring-boot-starter/sentry-spring-boot-starter.iml" filepath="$PROJECT_DIR$/sentry-spring-boot-starter/sentry-spring-boot-starter.iml" />
+    </modules>
+  </component>
+</project>
